@@ -1,0 +1,33 @@
+<h1>Add Recipe</h1>
+
+<input type="text" id="name" name="name" placeholder="Name"><br><br>
+<input type="text" id="category" name="category" placeholder="Category"><br><br>
+<input type="text" id="cuisine" name="cuisine" placeholder="Cuisine"><br><br>
+<input type="text" id="instructions" name="instructions" placeholder="Instructions"><br><br>
+<input type="text" id="makesSize" name="makesSize" placeholder="Serving Size"><br><br>
+<input type="text" id="notes" name="notes" placeholder="Notes"><br><br>
+<input type="text" id="image" name="image" placeholder="Image URL"><br><br>
+
+
+
+<button id="ingredientButton">Add Recipe</button>
+
+<script>
+document.getElementById("ingredientButton").addEventListener('click', function() {
+    let name = document.getElementById("name").value;
+    let category = document.getElementById("category").value;
+    let cuisine = document.getElementById("cuisine").value;
+    let instructions = document.getElementById("instructions").value;
+    let makesSize = document.getElementById("makesSize").value;
+    let notes = document.getElementById("notes").value;
+    let image = document.getElementById("image").value;
+    
+     
+
+    fetch(`/addRecipe?name=${name}&category=${category}&cuisine=${cuisine}&instructions=${instructions}&makesSize=${makesSize}&notes=${notes}&image=${image}`, {
+        method: 'POST'
+    }).then((response)=>{
+        console.log(response)
+    })
+});
+</script>

@@ -1,0 +1,16 @@
+<h1>{{post.recipeObj.recipeName}}</h1>
+<img style="max-height: 100%; max-width: 100%; width: 300px;" src="{{post.recipeObj.image}}" alt="{{post.recipeObj.recipeName}}">
+<ul>
+    <li>Serves: {{post.recipeObj.servingSize}}</li>
+    <li>Cuisine: {{post.recipeObj.cuisine}}</li>
+    <li>Type of Food: {{post.recipeObj.category}}</li>
+    <li>Notes: {{post.recipeObj.recipeNotes}}</li>
+</ul>
+
+{{#if post.recipeObj}}
+    {{#each post.recipeObj.ingredients}}
+        <p>{{this.quantity}} {{this.name}}</p>
+    {{/each}}
+{{/if}}
+
+<p>{{post.recipeObj.instructions}}</p>

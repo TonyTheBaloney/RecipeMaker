@@ -1,0 +1,62 @@
+
+<style>
+a:link, a:visited {
+	color: #999;
+	text-decoration: none;
+
+}
+
+a:hover, a:active {
+	color: #0080ff;
+}
+
+/* image caption styles */
+
+figure {
+	margin: 100px auto;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+
+figcaption {
+	position: absolute;	display: block;
+	width: 160px;
+	height: 50px;
+	left: 20px;
+	bottom: -50px;
+	text-align: center;
+	color: #fff;
+	background-color: rgba(0,0,0,.5);
+	line-height: 50px;
+	
+	border-radius: 10px 10px 0 0;
+	
+	transition: bottom .5s;
+}
+
+figure:hover figcaption {
+	bottom: 0px;
+}
+	</style>
+
+{{#if post.randomRecipesArray}}
+    <ul class="list-group">
+    {{#each post.randomRecipesArray}}
+        <!--<li class="list-group-item">{{this.recipeName}}</li>
+        <p class="list-group-item">{{this.instructions}}</p>-->
+        <figure>
+          <a href="/recipe?recipeID={{this.recipeID}}"><img src="{{this.image}}" width="200" height="200" alt="{{this.name}}" /></a>
+		      
+		      <figcaption>{{this.recipeName}}</figcaption>
+        </figure>
+    {{/each}}
+    </ul>
+{{else}}
+    <ul class="list-group">
+        <li class="list-group-item">No Recipes Found!!</li>
+    </ul>
+{{/if}}
+
+
